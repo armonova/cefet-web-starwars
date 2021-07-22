@@ -5,19 +5,17 @@
 //  - Quando um filme for clicado, exibir sua introdução
 
 // import { friendlyFetch } from './friendly-fetch.js';
-import { AudioPlayer } from './music-sem-private.js';
+import { AudioPlayer } from './music.js';
 
-// const API_ENDPOINT = 'https://swapi.dev/api'
+const API_ENDPOINT = 'https://swapi.dev/api'
 
 console.log('teste');   
-const urlAudio = 'audio/tema-sw.mp3';
-const urlCoverAudio = 'imgs/logo.svg';
-const titleAudio = 'Intro';
-const artistAudio = 'John Williams'
-const parentAudio = document.body;
+const audioUrl = 'audio/tema-sw.mp3';
+const coverImageUrl = 'imgs/logo.svg';
+const title = 'Intro';
+const artist = 'John Williams'
+const parentEl = document.body;
 
-console.log('testes 1');
+console.log('teste 33')
 
-new AudioPlayer().start({ urlAudio, urlCoverAudio, titleAudio, artistAudio }, parentAudio);
-
-console.log('testes');
+new AudioPlayer().start({ audioUrl, coverImageUrl, title, artist }, parentEl);
