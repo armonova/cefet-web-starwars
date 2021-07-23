@@ -6,6 +6,7 @@
 
 // import { friendlyFetch } from './friendly-fetch.js';
 import { AudioPlayer } from './music.js';
+import { restartAnimation } from './restart-animation.js';
 
 const API_ENDPOINT = 'https://swapi.dev/api'
 
@@ -22,7 +23,7 @@ const introduction = document.querySelector('pre.introducao');
 
 new AudioPlayer().start({ audioUrl, coverImageUrl, title, artist }, parentEl);
 
-// ex2 
+// ex2
 fetch(API_ENDPOINT + '/films')
     .then(response => {
         response.json()
@@ -35,6 +36,15 @@ fetch(API_ENDPOINT + '/films')
                     const decimalConversion = romanToDecimal(film.episode_id).padEnd(4);
                     li.innerHTML = `Episode ${decimalConversion} - ${film.title}`;
                     filmList.appendChild(li);
+
+                    // ex 3
+                    li.addEventListener('click', () => {
+                        restartAnimation(introduction);
+                        introduction.innerHTML = `Episode ${decimalConversion}
+                        ${film.title}
+
+                        ${film.opening_crawl}`
+                    })
                 })
             })
             .catch(err => {
